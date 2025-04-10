@@ -4,7 +4,6 @@ import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
-from io import BytesIO
 
 # Configurações do e-mail
 SMTP_SERVER = "smtp.office365.com"
