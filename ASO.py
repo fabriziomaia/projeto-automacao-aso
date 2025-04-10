@@ -66,12 +66,15 @@ def verificar_aniversario():
     df = pd.read_excel("funcionarios.xlsx", dtype={"Data_Admissao": str})
     hoje = datetime.date.today()
 
+    print(f"📆 Hoje é: {hoje}")
+
     for _, row in df.iterrows():
         nome = row["Nome"]
         email = row["Email"]
-        data_admissao = pd.to_datetime(row["Data_Admissao"], dayfirst=True).date()  # Agora interpreta DD/MM/YYYY
+        data_admissao = pd.to_datetime(row["Data_Admissao"], dayfirst=False).date()  # Agora interpreta DD/MM/YYYY
 
         if data_admissao.month == hoje.month and data_admissao.day == hoje.day:
+            print(f"Verificando: {nome} - {email} - Admissão em {data_admissao}")
             enviar_email(email, nome)
 
 # Executa a verificação
